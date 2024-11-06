@@ -1,15 +1,16 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({ plants }) {
+function PlantList({ plants, deletePlant }) {
   return (
     <ul className="cards">
-      {plants.map(plant => (
-        <PlantCard 
-          key={plant.id} 
-          plants={plant.name} 
-          plantImgs={plant.image} 
-          prices={plant.price} 
+      {plants.map((plant) => (
+        <PlantCard
+          key={plant.id}
+          plant={plant}
+          plantImgs={plant.image}
+          prices={plant.price}
+          deletePlant={deletePlant} 
         />
       ))}
     </ul>
@@ -17,3 +18,4 @@ function PlantList({ plants }) {
 }
 
 export default PlantList;
+

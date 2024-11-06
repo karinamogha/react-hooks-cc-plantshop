@@ -35,7 +35,7 @@ function PlantPage() {
     })
       .then(() => {
         const updatedPlants = plants.filter((plant) => plant.id !== id);
-        setPlants(updatedPlants); 
+        setPlants(updatedPlants); // Remove from state after deletion
       })
       .catch((error) => console.error("Error deleting plant:", error));
   };
@@ -48,11 +48,12 @@ function PlantPage() {
     <main>
       <NewPlantForm addPlant={addPlant} />
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <PlantList plants={filteredPlants} deletePlant={deletePlant} />
+      <PlantList plants={filteredPlants} deletePlant={deletePlant} /> 
     </main>
   );
 }
 
 export default PlantPage;
+
 
 

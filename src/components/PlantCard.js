@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-function PlantCard({ plants, plantImgs, prices }) {
+
+function PlantCard({ plant, plantImgs, prices, deletePlant }) {
   const [inStock, setInStock] = useState(true);
+
   const toggleStock = () => {
     setInStock(!inStock);
   };
-  const plant = plants;
-  const plantImg = plantImgs;
-  const price = prices;
+
+  const handleDelete = () => {
+    deletePlant(plant.id); 
+  }; 
 
   return (
     <li className="card" data-testid="plant-item">
-      <img src={plantImg} alt={plant} />
-      <h4>{plant}</h4>
-      <p>Price: {price}</p>
+      <img src={plantImgs} alt={plant.name} />
+      <h4>{plant.name}</h4>
+      <p>Price: {prices}</p>
       <button className={inStock ? "primary" : ""} onClick={toggleStock}>
         {inStock ? "In Stock" : "Out of Stock"}
       </button>
+      <button onClick={handleDelete}>Delete</button>
     </li>
   );
 }
