@@ -35,7 +35,7 @@ function PlantPage() {
     })
       .then(() => {
         const updatedPlants = plants.filter((plant) => plant.id !== id);
-        setPlants(updatedPlants); // Remove from state after deletion
+        setPlants(updatedPlants); 
       })
       .catch((error) => console.error("Error deleting plant:", error));
   };
